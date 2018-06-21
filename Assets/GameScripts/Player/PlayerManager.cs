@@ -74,6 +74,18 @@ public class PlayerManager : NetworkBehaviour {
         {
             CmdSpawnPlayer(1, gameObject);
         }
+        else if (Input.GetButtonDown("P2 Use") && !p2 && playerCount < 4)
+        {
+            CmdSpawnPlayer(2, gameObject);
+        }
+        else if (Input.GetButtonDown("P3 Use") && !p3 && playerCount < 4)
+        {
+            CmdSpawnPlayer(3, gameObject);
+        }
+        else if (Input.GetButtonDown("P4 Use") && !p4 && playerCount < 4)
+        {
+            CmdSpawnPlayer(4, gameObject);
+        }
 
         if (cam == null && camCheck < 10)
         {
@@ -130,6 +142,21 @@ public class PlayerManager : NetworkBehaviour {
                 break;
             case 1:
                 player.GetComponent<JoyControl>().playerNumber = 1;
+                player.GetComponent<JoyControl>().enabled = true;
+                Destroy(player.GetComponent<KeyboardControl>());
+                break;
+            case 2:
+                player.GetComponent<JoyControl>().playerNumber = 2;
+                player.GetComponent<JoyControl>().enabled = true;
+                Destroy(player.GetComponent<KeyboardControl>());
+                break;
+            case 3:
+                player.GetComponent<JoyControl>().playerNumber = 3;
+                player.GetComponent<JoyControl>().enabled = true;
+                Destroy(player.GetComponent<KeyboardControl>());
+                break;
+            case 4:
+                player.GetComponent<JoyControl>().playerNumber = 4;
                 player.GetComponent<JoyControl>().enabled = true;
                 Destroy(player.GetComponent<KeyboardControl>());
                 break;
